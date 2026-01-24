@@ -16,8 +16,8 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/colors/catpuccin.rasi"
-font: "Iosevka Nerd Font 10"
+@import "shared/colors.rasi"
+@import "shared/fonts.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -169,5 +169,6 @@ textbox {
     horizontal-align:            0.0;
     highlight:                   none;
 }
+
 
 
