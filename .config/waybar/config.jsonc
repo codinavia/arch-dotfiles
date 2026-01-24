@@ -320,7 +320,7 @@
 
   "custom/power-menu": {
     "format": " ⏻ ",
-    "on-click": "bash ~/.config/rofi/powermenu.sh &",
+    "on-click": "bash ~/.config/waybar/scripts/powermenu.sh &",
   },
 
   "custom/launcher": {
