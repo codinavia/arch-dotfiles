@@ -61,30 +61,30 @@
     "max-length": 20,
 
     "rewrite": {
-      "": "<span foreground='#8aadf4'> ",
+      "": "<span foreground='#8aadf4'> </span> Hyprland",
 
       // terminal
-      "kitty": "󰄛 ",
+      "kitty": "  Kitty",
 
       // browser
-      "(.*)Zen Browser.*": "<span foreground='#f5a97f'>󰺕 " ,
+      "(?i).*zen browser.*": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
 
       // visual studio code
       "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> $1",
-      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞 ",
+      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> Visual Studio Code",
 
       // neovim
-      "nvim": "<span foreground='#a6da95'> ",
+      "nvim": "<span foreground='#a6da95'>  </span> Neovim",
       "nvim (.*)": "<span foreground='#a6da95'>  </span> $1",
 
       // file manager
-      "nautilus": "<span foreground='#8aadf4'>󰉋 ",
+      "nautilus": "<span foreground='#8aadf4'>󰉋  </span> Nautilus",
       "(.*).jpg": "  $1.jpg",
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
 
       // social
-      "• Discord(.*)": " $1",
+      "• Discord(.*)": "discord$1",
       "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span> Discord",
 
       // documents
