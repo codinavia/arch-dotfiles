@@ -8,7 +8,7 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser";
+	modi: "drun,run,filebrowser,windows";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -179,4 +179,5 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }
+
 
