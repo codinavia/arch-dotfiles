@@ -11,7 +11,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "~/.config/waybar/scripts/network/colors.rasi"
+@import                          "~/.config/rofi/shared/colors.rasi"
 @import                          "~/.config/rofi/shared/fonts.rasi"
 
 * {
