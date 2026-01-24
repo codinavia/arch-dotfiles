@@ -15,7 +15,7 @@ configuration {
 	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Oranchelo";
+	icon-theme: "Gruvbox-Plus-Dark";
 /*	cache-dir: ;*/
 	steal-focus: false;
 /*	dpi: -1;*/
@@ -179,5 +179,6 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }
+
 
 
