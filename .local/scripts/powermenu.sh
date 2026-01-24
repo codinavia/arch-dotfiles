@@ -6,8 +6,8 @@
 ## Rofi   : Power Menu
 
 # Current Theme
-dir="./themes"
-theme='style-3-2'
+dir="${HOME}/.config/rofi/themes"
+theme='powermenu'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
