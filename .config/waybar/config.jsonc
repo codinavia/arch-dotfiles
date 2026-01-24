@@ -206,7 +206,6 @@
   },
 
   "network": {
-    /* "format-wifi": "直", */
     "format-wifi": "{icon}",
     "format-ethernet": " ",
     "format-disconnected": "睊",
