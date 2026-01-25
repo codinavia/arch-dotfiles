@@ -1,15 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
-  "spacing": 4,
 
   "modules-left": [
     "battery",
-    "audio",
-    "hyprland/workspaces",
-    "hyprland/window",
-    "tray"
+    "wireplumber",
+    "hyprland/window"
   ],
 
   "modules-center": [
@@ -18,97 +14,70 @@
   ],
 
   "modules-right": [
+    "custom/power-menu",
     "network",
     "bluetooth",
     "cpu",
-    "clock"
+    "clock",
+    "tray"
   ],
 
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "active": "  ",
+      "active": " ",
       "default": "󰊠 ",
-      "empty": "󰺕  "
+      "empty": "󰺕 "
     },
 
     "persistent-workspaces": {
-      "*": [1, 2, 3, 4, 5]
+      "*": [1, 2, 3]
     }
   },
 
   "hyprland/window": {
-    "format": "{class}",
+    "format": "{title}",
     "min-length": 5,
-    "max-length": 20,
+    "max-length": 30,
 
     "rewrite": {
-      // terminal
+      "": "<span foreground='#f5a97f'>󱜙 </span>",
       "kitty": "  kitty",
-      
-      // browser
-      ".*Zen Browser.*": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
-
-      // visual studio code
-      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> $1",
-      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> Visual Studio Code",
-
-      // neovim
-      "nvim": "<span foreground='#a6da95'>  </span> Neovim",
-      "nvim (.*)": "<span foreground='#a6da95'>  </span> $1",
-
-      // file manager
-      "nautilus": "<span foreground='#8aadf4'>󰉋  </span> Nautilus",
+      "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span>Zen",
+      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span>$1",
+      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span>Code",
+      "nvim": "<span foreground='#a6da95'>  </span>Neovim}",
+      "nvim (.*)": "<span foreground='#a6da95'>  </span>$1",
+      "eza": "<span foreground='#8aadf4'>󰉋 </span> Eza",
       "(.*).jpg": "  $1.jpg",
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
-
-      // social
-      "• Discord(.*)": "discord$1",
-      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span> Discord",
-
-      // documents
+      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span>Discord",
       "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796'> </span> OnlyOffice Desktop",
       "(.*).docx": "<span foreground='#8aadf4'> </span> $1.docx",
       "(.*).xlsx": "<span foreground='#a6da95'> </span> $1.xlsx",
       "(.*).pptx": "<span foreground='#f5a97f'> </span> $1.pptx",
       "(.*).pdf": "<span foreground='#ed8796'> </span> $1.pdf",
-
-      // system
       "Authenticate": "  Authenticate"
     }
   },
 
   "tray": {
+    "icon-size": 15,
     "spacing": 10
   },
 
   "clock": {
-    "format": "  {:%H:%M}",
-    "format-alt": "  {:%a, %d %b}",
+    "format": "{:%I:%M %p   %a %d}",
+    "format-alt": "{:%H:%M   %b %Y}",
     "interval": 1,
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 3,
-      "format": {
-        "months": "<span color='#cba6f7'><b>{}</b></span>",
-        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "today": "<span color='#f38ba8'><b>{}</b></span>",
-      }
-    },
-
-    "actions": { 
-      "on-click-right": "mode" ,
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+    "tooltip-format": "<tt>{calendar}</tt>"
   },
 
   "cpu": {
-    "interval": 1,
-    "format": "  {usage}% "
+    "interval": 110,
+    "format": "  {usage}%"
   },
 
   "network": {
@@ -121,8 +90,9 @@
   },
 
   "bluetooth": {
-    "format-on": "󰂯 ",
-    "format-off": "󰂲 ",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "icon-size": 25,
     "format-connected-battery": "{device_battery_procentage}% {icon}",
     "format-connected": "{device_alias} 󰂯",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected", 
@@ -133,19 +103,15 @@
     "format-icons": ["󰤾 ", "󰥀 ", "󰥃 ", "󰥆 ", "󰥈 "]
   },
 
-  "audio": {
-    "format": "{icon} <span font='11'>{volume}%</span>",
+  "wireplumber": {
+    "format": "{icon} {volume}%",
     "format-muted": "婢",
     "format-icons": {
-      "default": ["", "", "󰕾"]
+      "default": [" ", " ", "󰕾 "]
     },
 
-    "on-click-middle": "pavucontrol",
-    "on-click": "swayosd-client --output-volume mute-toggle",
-    "on-scroll-up": "swayosd-client --output-volume +1",
-    "on-scroll-down": "swayosd-client --output-volume -1",
-    "tooltip": true,
-    "tooltip-format": "{volume}%"
+    "on-click": "pavucontrol",
+    "tooltip": false
   },
 
   "battery": {
@@ -172,8 +138,8 @@
   },
 
   "mpris": {
-    "format": "{player_icon}",
-    "format-paused": "{status_icon} | {player_icon}",
+    "format": "{player_icon} ",
+    "format-paused": "{status_icon} | {player_icon} ",
     "artist-len": 10,
     "title-len": 20,
     "player-icons": {
@@ -192,18 +158,8 @@
   },
 
   "custom/power-menu": {
-    "format": " ⏻ ",
-    "on-click": "bash ~/.config/waybar/scripts/powermenu.sh &"
-  },
-
-  "group/audio": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "pulseaudio",
-      "transition-left-to-right": true,
-    },
-    "modules": ["pulseaudio", "pulseaudio#microphone"],
+    "format": "⏻ ",
+    "on-click": "wlogout"
   },
 
   "group/mpris-group": {
