@@ -1,14 +1,22 @@
 @import "mocha.css";
 
+/* Override Gtk defaults */
+button:hover {
+    box-shadow: none; 
+    text-shadow: none;
+    background: none; 
+    transition: none; 
+}
 
 /* Global styles */
 * {
   border: none;
   font-family: Iosevka Nerd Font;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 window#waybar {
+  all:unset;
   background-color: @base;
   color: @text;
   transition-property: background-color;
@@ -38,6 +46,12 @@ window#waybar {
   margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#cpu:hover {
+  background-color: @maroon;
+  color: @surface0
 }
 
 #network {
@@ -47,6 +61,13 @@ window#waybar {
   margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+}
+
+#network:hover {
+  background-color: @sky;
+  color: @surface0
 }
 
 #bluetooth {
@@ -56,6 +77,12 @@ window#waybar {
   margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#bluetooth:hover {
+  background-color: @yellow;
+  color: @surface0
 }
 
 #clock {
@@ -65,6 +92,12 @@ window#waybar {
   margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#clock:hover {
+  background-color: @sapphire;
+  color: @surface0
 }
 
 #battery {
@@ -72,8 +105,15 @@ window#waybar {
   color: @red;
   border-radius: 8px;
   margin: 8px 5px 8px 5px;
+  padding-top: 2px;
   padding-left: 8px;
   padding-right: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#battery:hover {
+  background-color: @red;
+  color: @surface0
 }
 
 #mpris-group {
@@ -83,12 +123,33 @@ window#waybar {
   padding-left: 8px;
 }
 
-#wireplumber {
+#mpris {
   background-color: @surface0;
   border-radius: 8px;
   margin: 8px 5px 8px 5px;
   padding-left: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#mpris:hover {
+  background-color: @peach;
+  color: @surface0
+}
+
+#wireplumber {
+  color: @peach;
+  background-color: @surface0;
+  border-radius: 8px;
+  margin: 8px 5px 8px 5px;
+  padding-top: 2px;
+  padding-left: 8px;
   padding-right: 8px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#wireplumber:hover {
+  background-color: @peach;
+  color: @surface0
 }
 
 #custom-power-menu {
@@ -97,24 +158,32 @@ window#waybar {
   border-radius: 8px;
   margin: 8px 5px 8px 5px;
   padding-left: 8px;
-  padding-right: 8px;
+  padding-right: 7px;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+#custom-power-menu:hover {
+  background-color: @pink;
+  color: @surface0
+}
 
 /* Workspaces */
 #workspaces button {
   color: @sapphire;
   border-radius: 8px;
   margin: 8px 5px 8px 5px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 9px;
+  padding-right: 7px;
+}
+
+#workspaces button:hover {
+  background-color: @crust;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 #workspaces button.active {
   color: @green;
-  padding-left: 8px;
-  padding-right: 8px;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  transition: color 0.5s ease;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -126,18 +195,17 @@ window#waybar {
 }
 
 tooltip {
-  border-radius: 15px;
-  padding: 15px;
-  background-color: #1f232b;
+  border-radius: 5px;
+  background-color: @surface0;
 }
 
 tooltip label {
   font-family: Iosevka Nerd Font;
-  padding: 5px;
+  font-size: 14;
 }
 
 label:focus {
-  background-color: #1f232b;
+  background-color: @overlay0;
 }
 
 #tray > .passive {
@@ -146,5 +214,5 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: @red;
 }

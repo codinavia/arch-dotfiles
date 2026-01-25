@@ -10,7 +10,8 @@
 
   "modules-center": [
     "hyprland/workspaces",
-    "group/mpris-group"
+    "mpris"
+    /* "group/mpris-group" */
   ],
 
   "modules-right": [
@@ -43,13 +44,15 @@
 
     "rewrite": {
       "": "<span foreground='#f5a97f'>󱜙 </span>",
+      "grecia@whiskers:(.*)": "<span foreground='#cba6f7'>  </span> $1",
       "kitty": "  kitty",
+      "nmtui": "󰤢  network manager",
       "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span>Zen",
       "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span>$1",
       "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span>Code",
       "nvim": "<span foreground='#a6da95'>  </span>Neovim}",
       "nvim (.*)": "<span foreground='#a6da95'>  </span>$1",
-      "eza": "<span foreground='#8aadf4'>󰉋 </span> Eza",
+      "Nautilus": "<span foreground='#8aadf4'>󰉋 </span> Nautilus",
       "(.*).jpg": "  $1.jpg",
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
@@ -60,7 +63,9 @@
       "(.*).pptx": "<span foreground='#f5a97f'> </span> $1.pptx",
       "(.*).pdf": "<span foreground='#ed8796'> </span> $1.pdf",
       "Authenticate": "  Authenticate"
-    }
+    },
+
+    "tooltip-format": "{title}" 
   },
 
   "tray": {
@@ -92,7 +97,6 @@
   "bluetooth": {
     "format-on": "󰂯",
     "format-off": "󰂲",
-    "icon-size": 25,
     "format-connected-battery": "{device_battery_procentage}% {icon}",
     "format-connected": "{device_alias} 󰂯",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected", 
@@ -105,7 +109,7 @@
 
   "wireplumber": {
     "format": "{icon} {volume}%",
-    "format-muted": "婢",
+    "format-muted": "󰝟 ",
     "format-icons": {
       "default": [" ", " ", "󰕾 "]
     },
@@ -125,21 +129,27 @@
     "format-warning": "{capacity}% {icon} ",
     "format-critical": "{capacity}% {icon} ",
     "format-charging": "{capacity}% <span font-family='JetBrains Mono Nerd'> </span>",
-    "format-plugged": "ﮣ",
 
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  "custom/power-menu": {
+    "format": "⏻ ",
+    "on-click": "wlogout",
+    "tooltip": false  
   },
 
   "mpris#title": {
-    "format": "{title} ",
-    "format-paused": " {title} ",
+    "format": "{title}",
+    "format-paused": "{title}",
     "artist-len": 10,
     "title-len": 20
   },
 
   "mpris": {
-    "format": "{player_icon} ",
-    "format-paused": "{status_icon} | {player_icon} ",
+    "interval": 4,
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} | {player_icon} {title}",
     "artist-len": 10,
     "title-len": 20,
     "player-icons": {
@@ -153,13 +163,10 @@
     "status-icons": {
       "paused": " ",
       "playing": "",
-      "stopped": ""
-    }
-  },
+      "stopped": " "
+    },
 
-  "custom/power-menu": {
-    "format": "⏻ ",
-    "on-click": "wlogout"
+    "on-click": "playerctl play-pause"
   },
 
   "group/mpris-group": {

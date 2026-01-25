@@ -1,126 +1,52 @@
-@import url('../../.cache/wal/colors-waybar.css');
-
-
 * {
-  background-image: none;
-  
-
+	background-image: none;
+	box-shadow: none;
 }
+
 window {
-  background: alpha(@background, .75);
+	background-color: rgba(30, 30, 46, 0.90)
 }
+
 button {
-  color: @foreground;
-  background: alpha(@background, 0.6);
-  outline-style: none;
-  border: none;
-  border-width: 0px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 10%;
-  border-radius: 0px;
-  box-shadow: none;
-  text-shadow: none;
-  
+  font-family: Iosevka Nerd Font;
+	border-radius: 0;
+	border-color: #cba6f7;
+	text-decoration-color: #cdd6f4;
+	color: #cdd6f4;
+	background-color: #181825;
+	border-style: solid;
+	border-width: 1px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
 }
 
-
-button:focus {
-  background-size: 20%;
-  -webkit-transform: translate(0px, 5px);
+button:focus, button:active, button:hover {
+	/* 20% Overlay 2, 80% mantle */
+	background-color: rgb(48, 50, 66);
+	outline-style: none;
 }
 
-button:hover  {
-  background-size: 25%;
-  border-radius: 30px;
-  -webkit-transform: translate(0px, 50px);
-  background-color: @color4;
-  color: @background;
-  animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
-  }
-
-  button:hover#logout {
-    border-radius: 20px 20px 0px 20px;
-    margin: 20px 0px 0px 280px;
-    background-image: image(
-      url("./icons/logout.png"),
-      url("/usr/share/wlogout/icons/logout.png"),
-      url("/usr/local/share/wlogout/icons/logout.png")
-    );
-  }
-  
-  
-  button:hover#hibernate {
-    border-radius: 20px 20px 20px 0px;
-    margin: 20px 280px 0px 0px;
-    background-image: image(
-      url("./icons/hibernate.png"),
-      url("/usr/share/wlogout/icons/hibernate.png"),
-      url("/usr/local/share/wlogout/icons/hibernate.png")
-    );
-  }
-  
-  button:hover#shutdown {
-    border-radius: 20px 0px 20px 20px;
-    margin: 0px 0px 20px 280px;
-    background-image: image(
-      url("./icons/power.png"),
-      url("/usr/share/wlogout/icons/shutdown.png"),
-      url("/usr/local/share/wlogout/icons/shutdown.png")
-    );
-  }
-  
-  button:hover#reboot {
-    border-radius: 0px 20px 20px 20px;
-    margin: 0px 280px 20px 0px;
-    background-image: image(
-      url("./icons/reboot.png"),
-      url("/usr/share/wlogout/icons/reboot.png"),
-      url("/usr/local/share/wlogout/icons/reboot.png")
-    );
-  }
-
-
-
+#lock {
+    background-image: url("./icons/lock.svg");
+}
 
 #logout {
-  border-radius: 26px 0px 0px 0px;
-  margin: 80px 0px 0px 350px;
-  background-image: image(
-    url("./icons/logout.png"),
-    url("/usr/share/wlogout/icons/logout.png"),
-    url("/usr/local/share/wlogout/icons/logout.png")
-  );
+    background-image: url("./icons/logout.svg");
 }
 
+#suspend {
+    background-image: url("./icons/suspend.svg");
+}
 
 #hibernate {
-  border-radius: 0px 26px 0px 0px;
-  margin: 80px 350px 0px 0px;
-  background-image: image(
-    url("./icons/hibernate.png"),
-    url("/usr/share/wlogout/icons/hibernate.png"),
-    url("/usr/local/share/wlogout/icons/hibernate.png")
-  );
+    background-image: url("./icons/hibernate.svg");
 }
 
 #shutdown {
-  border-radius: 0px 0px 0px 26px;
-  margin: 0px 0px 80px 350px;
-  background-image: image(
-    url("./icons/power.png"),
-    url("/usr/share/wlogout/icons/shutdown.png"),
-    url("/usr/local/share/wlogout/icons/shutdown.png")
-  );
+    background-image: url("./icons/shutdown.svg");
 }
 
 #reboot {
-  border-radius: 0px 0px 36px 0px;
-  margin: 0px 350px 80px 0px;
-  background-image: image(
-    url("./icons/reboot.png"),
-    url("/usr/share/wlogout/icons/reboot.png"),
-    url("/usr/local/share/wlogout/icons/reboot.png")
-  );
+    background-image: url("./icons/reboot.svg");
 }
