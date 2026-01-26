@@ -66,8 +66,8 @@
       "grecia@whiskers:(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> $1",
       "~(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> ~$1",
       "/(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> /$1",
-      "kitty": "  kitty",
-      "nmtui": "󰤢  network manager",
+      "kitty": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> kitty",
+      "nmtui": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>󰤢  </span>network manager",
 
       // other apps
       "(.*)Zen Browser": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'>󰺕  </span>Zen",
