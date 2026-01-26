@@ -11,8 +11,10 @@ button:hover {
 /* Global styles */
 * {
   border: none;
-  font-family: Iosevka Nerd Font;
-  font-size: 16px;
+  font-family: SF Pro, JetBrains Mono Nerd;
+  font-size: 15px;
+  margin-top: 1.8px;
+  margin-bottom: 1.8px;
 }
 
 window#waybar {
@@ -21,9 +23,18 @@ window#waybar {
   color: @text;
   transition-property: background-color;
   transition-duration: 0.5s;
+  border-radius: 15px;
+}
+
+#waybar .module {
+  min-width: 30px;
+  padding: 0px 6px;
+  margin-left: 10px;
+  border-radius: 15px;
 }
 
 .modules-left {
+  background-color: @base;
   margin-left: 5px;
   border-radius: 8px;
 }
@@ -34,16 +45,19 @@ window#waybar {
   color: @text;
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+#custom-arch {
+  color: @sapphire;
+  font-size: 25px;
 }
 
 #cpu {
   color: @maroon;
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -58,7 +72,6 @@ window#waybar {
   color: @sky;
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -73,8 +86,6 @@ window#waybar {
 #bluetooth {
   color: @yellow;
   background-color: @surface0;
-  border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -87,24 +98,17 @@ window#waybar {
 
 #clock {
   background-color: @surface0;
-  color: @sapphire;
+  color: @text;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-#clock:hover {
-  background-color: @sapphire;
-  color: @surface0
 }
 
 #battery {
   background-color: @surface0;
   color: @red;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-top: 2px;
   padding-left: 8px;
   padding-right: 8px;
@@ -119,14 +123,12 @@ window#waybar {
 #mpris-group {
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
 }
 
 #mpris {
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -140,7 +142,6 @@ window#waybar {
   color: @peach;
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-top: 2px;
   padding-left: 8px;
   padding-right: 8px;
@@ -156,9 +157,9 @@ window#waybar {
   color: @pink;
   background-color: @surface0;
   border-radius: 8px;
-  margin: 8px 5px 8px 5px;
   padding-left: 8px;
   padding-right: 7px;
+  margin-right: 10px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -170,10 +171,11 @@ window#waybar {
 /* Workspaces */
 #workspaces button {
   color: @sapphire;
-  border-radius: 8px;
-  margin: 8px 5px 8px 5px;
-  padding-left: 9px;
-  padding-right: 7px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  min-width: 60px;
 }
 
 #workspaces button:hover {

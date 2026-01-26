@@ -1,10 +1,18 @@
 {
   "layer": "top",
   "position": "top",
+  "margin-top": 10,
+  "margin-left": 15,
+  "margin-right": 15,
+
+  "mode": "dock",
+  "exclusive": false,
+  "passthrough": true,
+  "gtk-layer-shell": true,
 
   "modules-left": [
-    "battery",
-    "wireplumber",
+    "custom/arch",
+    "clock",
     "hyprland/window"
   ],
 
@@ -15,26 +23,36 @@
   ],
 
   "modules-right": [
-    "custom/power-menu",
     "network",
     "bluetooth",
-    "cpu",
-    "clock",
-    "tray"
+    "battery",
+    "wireplumber#sink",
+    "wireplumber#source",
+    "tray",
+    "custom/power-menu"
   ],
 
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "active": " ",
-      "default": "󰊠 ",
-      "empty": "󰺕 "
+      "active": " ",
+      "default": ""
     },
 
     "persistent-workspaces": {
       "*": [1, 2, 3]
     }
+  },
+
+  "custom/separator": {
+    "exec": "",
+    "interval": 1
+  },
+
+  "custom/arch": {
+    "exec": "echo '󰣇 '",
+    "interval": 1
   },
 
   "hyprland/window": {
@@ -43,26 +61,30 @@
     "max-length": 30,
 
     "rewrite": {
-      "": "<span foreground='#f5a97f'>󱜙 </span>",
-      "grecia@whiskers:(.*)": "<span foreground='#cba6f7'>  </span> $1",
+      "": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'>󱜙 </span>",
+      // terminal rewritte's
+      "grecia@whiskers:(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> $1",
+      "~(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> ~$1",
+      "/(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> /$1",
       "kitty": "  kitty",
       "nmtui": "󰤢  network manager",
-      "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span>Zen",
-      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span>$1",
-      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span>Code",
-      "nvim": "<span foreground='#a6da95'>  </span>Neovim}",
-      "nvim (.*)": "<span foreground='#a6da95'>  </span>$1",
-      "Nautilus": "<span foreground='#8aadf4'>󰉋 </span> Nautilus",
+
+      // other apps
+      "(.*)Zen Browser": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'>󰺕  </span>Zen",
+      "(.*) - Visual Studio Code": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>󰨞  </span>$1",
+      "(.*)Visual Studio Code": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>󰨞  </span>Code",
+      "nvim": "<span foreground='#a6da95' font-family='JetBrains Mono Nerd'>  </span>Neovim}",
+      "nvim (.*)": "<span foreground='#a6da95' font-family='JetBrains Mono Nerd'>  </span>$1",
+      "Nautilus": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>󰉋 </span> Nautilus",
       "(.*).jpg": "  $1.jpg",
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
-      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span>Discord",
-      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796'> </span> OnlyOffice Desktop",
-      "(.*).docx": "<span foreground='#8aadf4'> </span> $1.docx",
-      "(.*).xlsx": "<span foreground='#a6da95'> </span> $1.xlsx",
-      "(.*).pptx": "<span foreground='#f5a97f'> </span> $1.pptx",
-      "(.*).pdf": "<span foreground='#ed8796'> </span> $1.pdf",
-      "Authenticate": "  Authenticate"
+      "(.*)Discord(.*)": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>  </span>Discord",
+      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796' font-family='JetBrains Mono Nerd'> </span> OnlyOffice Desktop",
+      "(.*).docx": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'> </span> $1.docx",
+      "(.*).xlsx": "<span foreground='#a6da95' font-family='JetBrains Mono Nerd'> </span> $1.xlsx",
+      "(.*).pptx": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'> </span> $1.pptx",
+      "(.*).pdf": "<span foreground='#ed8796' font-family='JetBrains Mono Nerd'> </span> $1.pdf"
     },
 
     "tooltip-format": "{title}" 
@@ -74,15 +96,10 @@
   },
 
   "clock": {
-    "format": "{:%I:%M %p   %a %d}",
-    "format-alt": "{:%H:%M   %b %Y}",
+    "format": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'> </span> {:%I:%M %p}",
+    "format-alt": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'> </span> {:%I:%M — %a %d}",
     "interval": 1,
-    "tooltip-format": "<tt>{calendar}</tt>"
-  },
-
-  "cpu": {
-    "interval": 110,
-    "format": "  {usage}%"
+    "tooltip": false
   },
 
   "network": {
@@ -95,10 +112,10 @@
   },
 
   "bluetooth": {
-    "format-on": "󰂯",
-    "format-off": "󰂲",
-    "format-connected-battery": "{device_battery_procentage}% {icon}",
-    "format-connected": "{device_alias} 󰂯",
+    "format-on": "<span font-family='JetBrains Mono Nerd'>󰂯 </span> on",
+    "format-off": "<span font-family='JetBrains Mono Nerd'>󰂲 </span> off",
+    "format-connected-battery": "{device_battery_procentage}% <span font-family='JetBrains Mono Nerd'>{icon}</span>",
+    "format-connected": "<span font-family='JetBrains Mono Nerd'>󰂯 </span> {device_alias} connected",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected", 
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
@@ -107,8 +124,8 @@
     "format-icons": ["󰤾 ", "󰥀 ", "󰥃 ", "󰥆 ", "󰥈 "]
   },
 
-  "wireplumber": {
-    "format": "{icon} {volume}%",
+  "wireplumber#sink": {
+    "format": "<span font-family='JetBrains Mono Nerd'>{icon}</span> {volume}%",
     "format-muted": "󰝟 ",
     "format-icons": {
       "default": [" ", " ", "󰕾 "]
@@ -118,23 +135,38 @@
     "tooltip": false
   },
 
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "<span font-family='JetBrains Mono Nerd'> </span> {volume}%",
+    "format-muted": "<span font-family='JetBrains Mono Nerd'> </span>",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "scroll-step": 5
+  },
+
   "battery": {
     "interval": 30,
     "states": {
+      "good": 60,
       "warning": 30,
       "critical": 15
     },
 
-    "format": "{capacity}% {icon}",
-    "format-warning": "{capacity}% {icon} ",
-    "format-critical": "{capacity}% {icon} ",
-    "format-charging": "{capacity}% <span font-family='JetBrains Mono Nerd'> </span>",
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u normal 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!  '"
+    },
+
+    "format": "<span font-family='JetBrains Mono Nerd'>{icon} </span> {capacity}%",
+    "format-warning": "<span font-family='JetBrains Mono Nerd'>{icon} </span>{capacity}%",
+    "format-critical": "<span font-family='JetBrains Mono Nerd'>{icon} </span>{capacity}%",
+    "format-charging": "<span font-family='JetBrains Mono Nerd'> </span>{capacity}%",
 
     "format-icons": [" ", " ", " ", " ", " "]
   },
 
   "custom/power-menu": {
-    "format": "⏻ ",
+    "format": "<span font-family='JetBrains Mono Nerd'>⏻ </span>",
     "on-click": "wlogout",
     "tooltip": false  
   },
@@ -149,7 +181,7 @@
   "mpris": {
     "interval": 4,
     "format": "{player_icon} {title}",
-    "format-paused": "{status_icon} | {player_icon} {title}",
+    "format-paused": "{status_icon} | {player_icon} {title} // {position} : {length}",
     "artist-len": 10,
     "title-len": 20,
     "player-icons": {
