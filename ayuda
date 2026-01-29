@@ -1,0 +1,14 @@
+1. ping 192.168.1.3
+2. mascara de red, puerta de enlace, 
+marscara && direccion de red = direción (número) de red
+3. operación && entre mascara y la dirección de red destino para saber si están en la misma red.
+4. paquete icmp : destino, fuente, tipo, datos
+(icmp) protocolo de envio de mensajes
+5. tabla arp :  tabla de direcciones mac de la pc
+    "Un mensaje ARP (Address Resolution Protocol) es un paquete de red utilizado para mapear una dirección IP (lógica) a una dirección MAC (física) en una red local (LAN)."
+6. dirección mac para mensajes broadcast = FFF:FFF:FFF:FFF
+(los dispositivos deben desencapsular la trama y mandar al proceso que corresponde el tipo de trama)
+7. la capa de enlace de datos termina de armar la trama y agrega la suma de comprobación
+8. verifica si el medio está libre, de ser el caso envía la trama
+9. el router determina en su interfaz a donde debe enviar el paquete
+10. protocolo icmp > programa ping

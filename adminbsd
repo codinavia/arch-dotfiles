@@ -1,0 +1,27 @@
+create database ejemplo
+> .mdf : archivo primario donde se guarda la base de datos
+> .ndf : archivo secundario (opcionales)
+> .idf : archivo de registro (se registran todas las operaciones hechas en la base de datos)
+
+create table emp <ON> ejemplo02.ndf
+
+archivos .ldf
+> archivos secuenciales
+> si hay más de un archivo .ldf, los logs se guardán a como se vaya llenando el archivo.
+
+CREATE DATABASE Sales
+ON (
+    NAME = Sales_dat,
+    FILENAME = 'c:\program\files\microsoft.sqlserver\mssql\data\saledat.mdf',
+    SIZE=  10,
+    FILEGROWTH = 5
+)
+LOG 
+ON (
+    NAME = Sales_log,
+    FILENAME = 'c:\program\files\microsoft.sql.server\mssql\data\salelog.ldf
+    SIZE = 5MB,
+    MAXSIZE = 25MB,
+    FILEGROWTH = 5MB
+)
+GO

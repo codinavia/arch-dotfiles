@@ -5,10 +5,7 @@
   "margin-left": 15,
   "margin-right": 15,
 
-  "mode": "dock",
-  "exclusive": false,
-  "passthrough": true,
-  "gtk-layer-shell": true,
+  "exclusive": true,
 
   "modules-left": [
     "custom/arch",
@@ -61,30 +58,31 @@
     "max-length": 30,
 
     "rewrite": {
-      "": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'>󱜙 </span>",
+      "": "<span foreground='#f5a97f'>󰊠 </span>",
       // terminal rewritte's
-      "grecia@whiskers:(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> $1",
-      "~(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> ~$1",
-      "/(.*)": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> /$1",
-      "kitty": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>  </span> kitty",
-      "nmtui": "<span foreground='#cba6f7' font-family='JetBrains Mono Nerd'>󰤢  </span>network manager",
+      "grecia@whiskers:(.*)": "<span foreground='#cba6f7'>  </span> kitty",
+      "zsh": "<span foreground='#cba6f7'>  </span> kitty",
+      "~(.*)": "<span foreground='#cba6f7'>  </span> kitty",
+      "/(.*)": "<span foreground='#cba6f7'>  </span> kitty",
+      "kitty": "<span foreground='#cba6f7'>  </span> kitty",
+      "nmtui": "<span foreground='#cba6f7'>󰤢  </span> network manager",
 
       // other apps
-      "(.*)Zen Browser": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'>󰺕  </span>Zen",
-      "(.*) - Visual Studio Code": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>󰨞  </span>$1",
-      "(.*)Visual Studio Code": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>󰨞  </span>Code",
-      "nvim": "<span foreground='#a6da95' font-family='JetBrains Mono Nerd'>  </span>Neovim}",
-      "nvim (.*)": "<span foreground='#a6da95' font-family='JetBrains Mono Nerd'>  </span>$1",
-      "Nautilus": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>󰉋 </span> Nautilus",
+      "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> zen",
+      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> $1",
+      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> code",
+      "nvim": "<span foreground='#a6da95'>  </span> neovim",
+      "nvim (.*)": "<span foreground='#a6da95'>  </span> $1",
+      "Nautilus": "<span foreground='#8aadf4'>󰉋  </span> nautilus",
       "(.*).jpg": "  $1.jpg",
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
-      "(.*)Discord(.*)": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'>  </span>Discord",
-      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796' font-family='JetBrains Mono Nerd'> </span> OnlyOffice Desktop",
-      "(.*).docx": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'> </span> $1.docx",
-      "(.*).xlsx": "<span foreground='#a6da95' font-family='JetBrains Mono Nerd'> </span> $1.xlsx",
-      "(.*).pptx": "<span foreground='#f5a97f' font-family='JetBrains Mono Nerd'> </span> $1.pptx",
-      "(.*).pdf": "<span foreground='#ed8796' font-family='JetBrains Mono Nerd'> </span> $1.pdf"
+      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span> discord",
+      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796'>  </span> only office desktop",
+      "(.*).docx": "<span foreground='#8aadf4'>  </span> $1.docx",
+      "(.*).xlsx": "<span foreground='#a6da95'>  </span> $1.xlsx",
+      "(.*).pptx": "<span foreground='#f5a97f'>  </span> $1.pptx",
+      "(.*).pdf": "<span foreground='#ed8796'>  </span> $1.pdf"
     },
 
     "tooltip-format": "{title}" 
@@ -92,12 +90,13 @@
 
   "tray": {
     "icon-size": 15,
-    "spacing": 10
+    "spacing": 10,
+    "tooltip": false
   },
 
   "clock": {
-    "format": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'> </span> {:%I:%M %p}",
-    "format-alt": "<span foreground='#8aadf4' font-family='JetBrains Mono Nerd'> </span> {:%I:%M — %a %d}",
+    "format": "<span foreground='#8aadf4'> </span> {:%I:%M %p}",
+    "format-alt": "<span foreground='#8aadf4'> </span> {:%I:%M — %a %d}",
     "interval": 1,
     "tooltip": false
   },
@@ -112,10 +111,10 @@
   },
 
   "bluetooth": {
-    "format-on": "<span font-family='JetBrains Mono Nerd'>󰂯 </span> on",
-    "format-off": "<span font-family='JetBrains Mono Nerd'>󰂲 </span> off",
-    "format-connected-battery": "{device_battery_procentage}% <span font-family='JetBrains Mono Nerd'>{icon}</span>",
-    "format-connected": "<span font-family='JetBrains Mono Nerd'>󰂯 </span> {device_alias} connected",
+    "format-on": "<span>󰂯 </span> on",
+    "format-off": "<span>󰂲 </span> off",
+    "format-connected-battery": "{device_battery_procentage}% <span>{icon}</span>",
+    "format-connected": "<span>󰂯 </span> {device_alias} connected",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected", 
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
@@ -125,7 +124,7 @@
   },
 
   "wireplumber#sink": {
-    "format": "<span font-family='JetBrains Mono Nerd'>{icon}</span> {volume}%",
+    "format": "<span>{icon}</span> {volume}%",
     "format-muted": "󰝟 ",
     "format-icons": {
       "default": [" ", " ", "󰕾 "]
@@ -137,10 +136,11 @@
 
   "wireplumber#source": {
     "node-type": "Audio/Source",
-    "format": "<span font-family='JetBrains Mono Nerd'> </span> {volume}%",
-    "format-muted": "<span font-family='JetBrains Mono Nerd'> </span>",
+    "format": "<span> </span> {volume}%",
+    "format-muted": "<span> </span>",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "scroll-step": 5
+    "scroll-step": 5,
+    "tooltip": false
   },
 
   "battery": {
@@ -157,17 +157,17 @@
       "on-charging-100": "notify-send -u normal 'Battery Full!  '"
     },
 
-    "format": "<span font-family='JetBrains Mono Nerd'>{icon} </span> {capacity}%",
-    "format-warning": "<span font-family='JetBrains Mono Nerd'>{icon} </span>{capacity}%",
-    "format-critical": "<span font-family='JetBrains Mono Nerd'>{icon} </span>{capacity}%",
-    "format-charging": "<span font-family='JetBrains Mono Nerd'> </span>{capacity}%",
+    "format": "<span>{icon} </span> {capacity}%",
+    "format-warning": "<span>{icon} </span> {capacity}%",
+    "format-critical": "<span>{icon} </span> {capacity}%",
+    "format-charging": "<span> </span> {capacity}%",
 
     "format-icons": [" ", " ", " ", " ", " "]
   },
 
   "custom/power-menu": {
-    "format": "<span font-family='JetBrains Mono Nerd'>⏻ </span>",
-    "on-click": "wlogout",
+    "format": "<span>⏻ </span>",
+    "on-click": "bash ~/.config/rofi/bin/pm-applet.sh",
     "tooltip": false  
   },
 
