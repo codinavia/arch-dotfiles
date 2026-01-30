@@ -4,8 +4,17 @@
   "margin-top": 10,
   "margin-left": 15,
   "margin-right": 15,
-
   "exclusive": true,
+
+  "include": [
+    "~/.config/waybar/modules/audio.jsonc",
+    "~/.config/waybar/modules/battery.jsonc",
+    "~/.config/waybar/modules/bluetooth.jsonc",
+    "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/mpris.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/hyprland.jsonc"
+  ],
 
   "modules-left": [
     "custom/arch",
@@ -15,7 +24,7 @@
 
   "modules-center": [
     "hyprland/workspaces",
-    "mpris"
+    "group/media"
     /* "group/mpris-group" */
   ],
 
@@ -29,63 +38,10 @@
     "custom/power-menu"
   ],
 
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "active": " ",
-      "default": ""
-    },
-
-    "persistent-workspaces": {
-      "*": [1, 2, 3]
-    }
-  },
-
-  "custom/separator": {
-    "exec": "",
-    "interval": 1
-  },
-
   "custom/arch": {
     "exec": "echo '󰣇 '",
-    "interval": 1
-  },
-
-  "hyprland/window": {
-    "format": "{title}",
-    "min-length": 5,
-    "max-length": 30,
-
-    "rewrite": {
-      "": "<span foreground='#f5a97f'>󰊠 </span>",
-      // terminal rewritte's
-      "grecia@whiskers:(.*)": "<span foreground='#cba6f7'>  </span> kitty",
-      "zsh": "<span foreground='#cba6f7'>  </span> kitty",
-      "~(.*)": "<span foreground='#cba6f7'>  </span> kitty",
-      "/(.*)": "<span foreground='#cba6f7'>  </span> kitty",
-      "kitty": "<span foreground='#cba6f7'>  </span> kitty",
-      "nmtui": "<span foreground='#cba6f7'>󰤢  </span> network manager",
-
-      // other apps
-      "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> zen",
-      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> $1",
-      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> code",
-      "nvim": "<span foreground='#a6da95'>  </span> neovim",
-      "nvim (.*)": "<span foreground='#a6da95'>  </span> $1",
-      "Nautilus": "<span foreground='#8aadf4'>󰉋  </span> nautilus",
-      "(.*).jpg": "  $1.jpg",
-      "(.*).png": "  $1.png",
-      "(.*).svg": "  $1.svg",
-      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span> discord",
-      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796'>  </span> only office desktop",
-      "(.*).docx": "<span foreground='#8aadf4'>  </span> $1.docx",
-      "(.*).xlsx": "<span foreground='#a6da95'>  </span> $1.xlsx",
-      "(.*).pptx": "<span foreground='#f5a97f'>  </span> $1.pptx",
-      "(.*).pdf": "<span foreground='#ed8796'>  </span> $1.pdf"
-    },
-
-    "tooltip-format": "{title}" 
+    "interval": 1,
+    "tooltip": false
   },
 
   "tray": {
@@ -94,121 +50,9 @@
     "tooltip": false
   },
 
-  "clock": {
-    "format": "<span foreground='#8aadf4'> </span> {:%I:%M %p}",
-    "format-alt": "<span foreground='#8aadf4'> </span> {:%I:%M — %a %d}",
-    "interval": 1,
-    "tooltip": false
-  },
-
-  "network": {
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰖪 ",
-    "tooltip-format": "{essid}",
-    "on-click": "kitty nmtui",
-    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "]
-  },
-
-  "bluetooth": {
-    "format-on": "<span>󰂯 </span> on",
-    "format-off": "<span>󰂲 </span> off",
-    "format-connected-battery": "{device_battery_procentage}% <span>{icon}</span>",
-    "format-connected": "<span>󰂯 </span> {device_alias} connected",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected", 
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-    "on-click-right": "rofi-bluetooth &",
-    "format-icons": ["󰤾 ", "󰥀 ", "󰥃 ", "󰥆 ", "󰥈 "]
-  },
-
-  "wireplumber#sink": {
-    "format": "<span>{icon}</span> {volume}%",
-    "format-muted": "󰝟 ",
-    "format-icons": {
-      "default": [" ", " ", "󰕾 "]
-    },
-
-    "on-click": "pavucontrol",
-    "tooltip": false
-  },
-
-  "wireplumber#source": {
-    "node-type": "Audio/Source",
-    "format": "<span> </span> {volume}%",
-    "format-muted": "<span> </span>",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "scroll-step": 5,
-    "tooltip": false
-  },
-
-  "battery": {
-    "interval": 30,
-    "states": {
-      "good": 60,
-      "warning": 30,
-      "critical": 15
-    },
-
-    "events": {
-      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
-      "on-discharging-critical": "notify-send -u normal 'Very Low Battery'",
-      "on-charging-100": "notify-send -u normal 'Battery Full!  '"
-    },
-
-    "format": "<span>{icon} </span> {capacity}%",
-    "format-warning": "<span>{icon} </span> {capacity}%",
-    "format-critical": "<span>{icon} </span> {capacity}%",
-    "format-charging": "<span> </span> {capacity}%",
-
-    "format-icons": [" ", " ", " ", " ", " "]
-  },
-
   "custom/power-menu": {
     "format": "<span>⏻ </span>",
     "on-click": "bash ~/.config/rofi/bin/pm-applet.sh",
     "tooltip": false  
-  },
-
-  "mpris#title": {
-    "format": "{title}",
-    "format-paused": "{title}",
-    "artist-len": 10,
-    "title-len": 20
-  },
-
-  "mpris": {
-    "interval": 4,
-    "format": "{player_icon} {title}",
-    "format-paused": "{status_icon} | {player_icon} {title} // {position} : {length}",
-    "artist-len": 10,
-    "title-len": 20,
-    "player-icons": {
-      "default": " ",
-      "mpv": "🎵",
-      "firefox": " ",
-      "chromium": " ",
-      "zen-browser": "󰺕 "
-    },
-
-    "status-icons": {
-      "paused": " ",
-      "playing": "",
-      "stopped": " "
-    },
-
-    "on-click": "playerctl play-pause"
-  },
-
-  "group/mpris-group": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "mpris",
-      "transition-left-to-right": true
-    },
-
-    "modules": ["mpris", "mpris#title"]
   }
 }

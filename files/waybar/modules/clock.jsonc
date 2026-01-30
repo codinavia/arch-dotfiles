@@ -1,0 +1,8 @@
+{
+    "clock": {
+        "format": "<span foreground='#8aadf4'> </span> {:%I:%M %p}",
+        "format-alt": "<span foreground='#8aadf4'> </span> {:%I:%M — %a %d}",
+        "interval": 1,
+        "tooltip": false
+    }
+}

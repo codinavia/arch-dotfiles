@@ -1,0 +1,52 @@
+{
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "active": " ",
+            "default": ""
+        },
+
+    "persistent-workspaces": {
+        "*": [1, 2, 3]
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "min-length": 5,
+    "max-length": 30,
+
+    "rewrite": {
+      "": "<span foreground='#f5a97f'></span>",
+      // terminal rewritte's
+      "grecia@whiskers:(.*)": "<span foreground='#cba6f7'>  </span> kitty",
+      "zsh": "<span foreground='#cba6f7'>  </span> kitty",
+      "~(.*)": "<span foreground='#cba6f7'>  </span> kitty",
+      "/(.*)": "<span foreground='#cba6f7'>  </span> kitty",
+      "kitty": "<span foreground='#cba6f7'>  </span> kitty",
+      "nmtui": "<span foreground='#cba6f7'>󰤢  </span> network manager",
+
+      // other apps
+      "(.*) - Obsidian(.*)": "<span foregroun='#cba6f7'>󱞁  </span> $1",
+      "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> zen",
+      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> $1",
+      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> code",
+      "nvim": "<span foreground='#a6da95'>  </span> neovim",
+      "nvim (.*)": "<span foreground='#a6da95'>  </span> $1",
+      "Nautilus": "<span foreground='#8aadf4'>󰉋  </span> nautilus",
+      "(.*).jpg": "  $1.jpg",
+      "(.*).png": "  $1.png",
+      "(.*).svg": "  $1.svg",
+      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span> discord",
+      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796'>  </span> only office desktop",
+      "(.*).docx": "<span foreground='#8aadf4'>  </span> $1.docx",
+      "(.*).xlsx": "<span foreground='#a6da95'>  </span> $1.xlsx",
+      "(.*).pptx": "<span foreground='#f5a97f'>  </span> $1.pptx",
+      "(.*).pdf": "<span foreground='#ed8796'>  </span> $1.pdf"
+    },
+
+    "tooltip-format": "{title}" 
+  }
+}

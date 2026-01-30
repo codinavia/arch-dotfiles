@@ -125,22 +125,40 @@ window#waybar {
   color: @base
 }
 
-#mpris-group {
+/* #mpris-group {
   background-color: @base;
   border-radius: 8px;
   padding-left: 8px;
+} */
+#media > * {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#custom-prev,
+#custom-next,
+#mpris.menu {
+  min-width: 10px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#custom-prev:hover,
+#custom-next:hover,
+#mpris.menu:hover {
+  background-color: @crust;
+  color: @text;
 }
 
 #mpris {
   background-color: @base;
   border-radius: 8px;
   padding-left: 8px;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #mpris:hover {
   background-color: @peach;
-  color: @base
+  color: @base;
 }
 
 #wireplumber {
@@ -207,8 +225,8 @@ tooltip {
 }
 
 tooltip label {
-  font-family: Iosevka Nerd Font;
-  font-size: 14;
+  font-family: SF Pro;
+  font-size: 14px;
 }
 
 label:focus {

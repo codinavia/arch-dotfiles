@@ -1,0 +1,22 @@
+{
+
+  "wireplumber#sink": {
+    "format": "<span>{icon}</span> {volume}%",
+    "format-muted": "󰝟 ",
+    "format-icons": {
+      "default": [" ", " ", "󰕾 "]
+    },
+
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "<span> </span> {volume}%",
+    "format-muted": "<span> </span>",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "scroll-step": 5,
+    "tooltip": false
+  }
+}

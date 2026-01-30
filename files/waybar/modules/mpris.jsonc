@@ -1,0 +1,80 @@
+{
+    "mpris#title": {
+        "format": "{title}",
+        "format-paused": "{title}",
+        "artist-len": 10,
+        "title-len": 20
+    },
+    
+    "group/media": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/prev",
+            "mpris#menu",
+            "custom/next",
+            "mpris"
+        ]
+    },
+
+    "custom/prev": {
+        "format": "󰒮",
+        "on-click": "playerctl previous",
+        "exec": "playerctl status",
+        "interval": 1,
+        "exec-if": "playerctl status",
+        "tooltip": false
+    },
+
+    "mpris#menu": {
+        "format": "",
+        "format-paused": "",
+        "on-click": "playerctl play-pause",
+        "tooltip": false
+    },
+
+    "mpris": {
+        "interval": 0.5,
+        /* "format": "{player_icon} {title} // {position} : {length}",
+        "format-paused": "{status_icon}  |  {player_icon} {title} // {position} : {length}", */
+        "format": "{player_icon} {title} // {position} : {length}",
+        "format-paused": "{player_icon} {title} // {position} : {length}",
+        "artist-len": 10,
+        "title-len": 20,
+        "player-icons": {
+            "default": " ",
+            "mpv": "🎵",
+            "firefox": " ",
+            "chromium": " ",
+            "zen-browser": "󰺕 "
+        },
+
+        "status-icons": {
+            "paused": " ",
+            "playing": "",
+            "stopped": " "
+        },
+
+        /* "on-click": "playerctl play-pause", */
+        "tooltip-format": "{player_icon}  | {title} by {artist} [{position} : {length}]"
+    },
+
+    "custom/next": {
+        "format": "󰒭",
+        "on-click": "playerctl next",
+        "exec": "playerctl status",
+        "interval": 1,
+        "exec-if": "playerctl status",
+        "tooltip": false
+    },
+
+    "group/mpris-group": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "mpris",
+            "transition-left-to-right": true
+        },
+
+        "modules": ["mpris", "mpris#title"]
+    }
+}
