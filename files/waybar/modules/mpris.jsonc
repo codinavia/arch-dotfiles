@@ -39,7 +39,7 @@
             "firefox": " ",
             "chromium": " ",
             "zen-browser": "󰺕 "
-        },
+        }
 
         /* "format": "{player_icon} {title} // {position} : {length}",
         "format-paused": "{status_icon}  |  {player_icon} {title} // {position} : {length}", */
