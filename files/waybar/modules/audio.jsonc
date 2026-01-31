@@ -1,5 +1,4 @@
 {
-
   "wireplumber#sink": {
     "format": "<span>{icon}</span> {volume}%",
     "format-muted": "󰝟 ",

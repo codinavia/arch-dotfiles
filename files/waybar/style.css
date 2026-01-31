@@ -10,38 +10,41 @@ button:hover {
 
 /* Global styles */
 * {
-  border: none;
+  /* Font */
   font-family: SF Pro, JetBrains Mono Nerd;
   font-size: 15px;
+
+  /* Margin */
   margin-top: 1.8px;
   margin-bottom: 1.8px;
+
+  /* Border */
+  border: none;
+  border-radius: 15px;
 }
 
+/* Waybar */
 window#waybar {
   all:unset;
-  /*background-color: @base;
-  color: @text;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-radius: 15px;*/
 }
 
-#waybar .module {
+/* Right Modules */
+#network, 
+#bluetooth, 
+#battery, 
+#wireplumber, 
+#custom-power-menu {
+  margin-left: 10px;
   min-width: 40px;
   padding: 0px 6px;
+}
+
+/* Left Modules */
+#custom-arch,
+#clock, 
+#window {
+  padding: 0px 7px 0px 8px;
   margin-left: 10px;
-  border-radius: 15px;
-}
-
-.modules-left {
-  /* background-color: @base; */
-  margin-left: 5px;
-  border-radius: 15px;
-}
-
-.modules-center {
-  background-color: @base;
-  border-radius: 15px;
 }
 
 /* Displays */
@@ -49,36 +52,12 @@ window#waybar {
 #tray {
   color: @text;
   background-color: @base;
-  border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
-#custom-arch {
-  color: @sapphire;
-  font-size: 25px;
-}
-
-#cpu {
-  color: @maroon;
-  background-color: @base;
-  border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-#cpu:hover {
-  background-color: @maroon;
-  color: @base
-}
-
+/* Network */
 #network {
   color: @sky;
   background-color: @base;
-  border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
 
 }
@@ -88,11 +67,10 @@ window#waybar {
   color: @base
 }
 
+/* Bluetooth */
 #bluetooth {
   color: @yellow;
   background-color: @base;
-  padding-left: 8px;
-  padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -101,22 +79,17 @@ window#waybar {
   color: @base
 }
 
+/* Clock */
 #clock {
   background-color: @base;
   color: @text;
-  border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/* Battery */
 #battery {
   background-color: @base;
   color: @red;
-  border-radius: 8px;
-  padding-top: 2px;
-  padding-left: 8px;
-  padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -125,21 +98,20 @@ window#waybar {
   color: @base
 }
 
-/* #mpris-group {
+/* Music */
+#media {
   background-color: @base;
-  border-radius: 8px;
-  padding-left: 8px;
-} */
-#media > * {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #custom-prev,
 #custom-next,
-#mpris.menu {
-  min-width: 10px;
-  transition: background-color 0.5s ease, color 0.5s ease;
+#mpris {
+  min-width: 25px;
+  transition: all 0.5s ease;
+  background-color: @base;
 }
 
 #custom-prev:hover,
@@ -149,25 +121,15 @@ window#waybar {
   color: @text;
 }
 
-#mpris {
-  background-color: @base;
-  border-radius: 8px;
-  padding-left: 8px;
-  transition: all 0.5s ease;
-}
-
-#mpris:hover {
+#mpris:hover:not(.player):not(.menu) {
   background-color: @peach;
   color: @base;
 }
 
+/* Audio */
 #wireplumber {
   color: @peach;
   background-color: @base;
-  border-radius: 8px;
-  padding-top: 2px;
-  padding-left: 8px;
-  padding-right: 8px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -176,13 +138,10 @@ window#waybar {
   color: @base
 }
 
+/* Powermenu */
 #custom-power-menu {
   color: @pink;
   background-color: @base;
-  border-radius: 8px;
-  padding-left: 8px;
-  padding-right: 7px;
-  margin-right: 10px;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -192,6 +151,11 @@ window#waybar {
 }
 
 /* Workspaces */
+#workspaces {
+  background-color: @base;
+  border-radius: 15px;
+}
+
 #workspaces button {
   color: @sapphire;
   margin-left: 0px;
@@ -211,16 +175,15 @@ window#waybar {
   transition: color 0.5s ease;
 }
 
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
+/* Others */
+#custom-arch {
+  color: @sapphire;
+  font-size: 25px;
 }
 
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
+/* Tootltip */
 tooltip {
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: @base;
 }
 
