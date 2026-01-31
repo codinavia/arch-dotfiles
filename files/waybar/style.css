@@ -108,20 +108,28 @@ window#waybar {
 
 #custom-prev,
 #custom-next,
-#mpris {
+#mpris.status {
   min-width: 25px;
+  transition: all 0.5s ease;
+  background-color: @base;
+}
+
+#mpris:not(.status) {
+  margin-left: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
   transition: all 0.5s ease;
   background-color: @base;
 }
 
 #custom-prev:hover,
 #custom-next:hover,
-#mpris.menu:hover {
+#mpris.status:hover {
   background-color: @crust;
   color: @text;
 }
 
-#mpris:hover:not(.player):not(.menu) {
+#mpris:hover:not(.status) {
   background-color: @peach;
   color: @base;
 }

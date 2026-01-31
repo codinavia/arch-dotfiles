@@ -1,17 +1,9 @@
-{
-    "mpris#title": {
-        "format": "{title}",
-        "format-paused": "{title}",
-        "artist-len": 10,
-        "title-len": 20
-    },
-    
+{    
     "group/media": {
         "orientation": "horizontal",
         "modules": [
-            "mpris#player",
             "custom/prev",
-            "mpris#menu",
+            "mpris#status",
             "custom/next",
             "mpris"
         ]
@@ -26,7 +18,7 @@
         "tooltip": false
     },
 
-    "mpris#menu": {
+    "mpris#status": {
         "format": "",
         "format-paused": "",
         "on-click": "playerctl play-pause",
@@ -34,26 +26,13 @@
         "interval": 0.5
     },
 
-    "mpris#player": {
-        "format": "{player_icon}",
-        "player-icons": {
-            "default": " ",
-            "mpv": "🎵",
-            "firefox": " ",
-            "chromium": " ",
-            "zen-browser": "󰺕 "
-        },
-        "tooltip": false
-    },
-
     "mpris": {
         "interval": 1,
-        /* "format": "{player_icon} {title} // {position} : {length}",
-        "format-paused": "{status_icon}  |  {player_icon} {title} // {position} : {length}", */
-        "format": "{title} | {position} / {length}",
-        "format-paused": "{title} | {position} / {length}",
-        /* "artist-len": 10, */
-        /* "title-len": 20, */
+        "format": "{player_icon} {title} | {position} / {length}",
+        "format-paused": "{player_icon} {title} | {position} / {length}",
+        "on-click": "playerctl play-pause",
+        "tooltip-format": "{player_icon}  | {title} by {artist} [{position} / {length}]",
+
         "player-icons": {
             "default": " ",
             "mpv": "🎵",
@@ -62,14 +41,8 @@
             "zen-browser": "󰺕 "
         },
 
-        "status-icons": {
-            "paused": " ",
-            "playing": "",
-            "stopped": " "
-        },
-
-        /* "on-click": "playerctl play-pause", */
-        "tooltip-format": "{player_icon}  | {title} by {artist} [{position} / {length}]"
+        /* "format": "{player_icon} {title} // {position} : {length}",
+        "format-paused": "{status_icon}  |  {player_icon} {title} // {position} : {length}", */
     },
 
     "custom/next": {
@@ -79,16 +52,5 @@
         "interval": 0.5,
         "exec-if": "playerctl status",
         "tooltip": false
-    },
-
-    "group/mpris-group": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "mpris",
-            "transition-left-to-right": true
-        },
-
-        "modules": ["mpris", "mpris#title"]
     }
 }
