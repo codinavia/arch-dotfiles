@@ -106,15 +106,20 @@ window#waybar {
   padding-right: 15px;
 }
 
-#custom-prev,
-#custom-next,
+#custom-is-playing {
+  font-family: Iosevka Nerd Font;
+  color: @peach;
+}
+
+#mpris.prev,
+#mpris.next,
 #mpris.status {
   min-width: 25px;
   transition: all 0.5s ease;
   background-color: @base;
 }
 
-#mpris:not(.status) {
+#mpris:not(.status):not(.prev):not(.next) {
   margin-left: 2px;
   padding-left: 8px;
   padding-right: 8px;
@@ -122,14 +127,13 @@ window#waybar {
   background-color: @base;
 }
 
-#custom-prev:hover,
-#custom-next:hover,
+#mpris.prev:hover,
+#mpris.next:hover,
 #mpris.status:hover {
-  background-color: @crust;
-  color: @text;
+  color: @peach;
 }
 
-#mpris:hover:not(.status) {
+#mpris:hover:not(.status):not(.prev):not(.next) {
   background-color: @peach;
   color: @base;
 }

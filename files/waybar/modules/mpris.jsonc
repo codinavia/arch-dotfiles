@@ -2,19 +2,25 @@
     "group/media": {
         "orientation": "horizontal",
         "modules": [
-            "custom/prev",
+            "custom/is-playing",
+            "mpris#prev",
             "mpris#status",
-            "custom/next",
+            "mpris#next",
             "mpris"
         ]
     },
 
-    "custom/prev": {
+    "custom/is-playing": {
+        "exec": "echo ' '",
+        "exec-if": "! playerctl status 2>/dev/null",
+        "interval": 1,
+        "tooltip": false
+    },
+
+    "mpris#prev": {
         "format": "󰒮",
         "on-click": "playerctl previous",
-        "exec": "playerctl status",
         "interval": 0.5,
-        "exec-if": "playerctl status",
         "tooltip": false
     },
 
@@ -45,12 +51,10 @@
         "format-paused": "{status_icon}  |  {player_icon} {title} // {position} : {length}", */
     },
 
-    "custom/next": {
+    "mpris#next": {
         "format": "󰒭",
         "on-click": "playerctl next",
-        "exec": "playerctl status",
         "interval": 0.5,
-        "exec-if": "playerctl status",
         "tooltip": false
     }
 }

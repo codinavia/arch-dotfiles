@@ -5,6 +5,7 @@
   "margin-left": 15,
   "margin-right": 15,
   "exclusive": true,
+  "reload_style_on_change": true,
 
   "include": [
     "~/.config/waybar/modules/audio.jsonc",
